@@ -1,15 +1,24 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-
+import { Provider } from 'react-redux'
+import store from  './redux/store';
+import './globalStyle.scss';
+import './i18n/i18n';
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
+
+
+
 root.render(
   <React.StrictMode>
-    <App />
+    <Provider store={store}>
+      {/* <Suspense fallback={<span>Loading...</span>}> */}
+        <App />
+      {/* </Suspense> */}
+    </Provider>
   </React.StrictMode>
 );
 
